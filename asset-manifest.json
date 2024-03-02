@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/RoboticMinds/static/css/main.039ed57b.css",
-    "main.js": "/RoboticMinds/static/js/main.b66351c5.js",
+    "main.css": "/RoboticMinds/static/css/main.326dffbc.css",
+    "main.js": "/RoboticMinds/static/js/main.472ea038.js",
     "static/js/453.de8b9350.chunk.js": "/RoboticMinds/static/js/453.de8b9350.chunk.js",
     "static/media/imgRoboticSobre.png": "/RoboticMinds/static/media/imgRoboticSobre.cdc4ea3c73d59d58803f.png",
+    "static/media/imgRoboticProje.png": "/RoboticMinds/static/media/imgRoboticProje.2ee2cd29efac78011f65.png",
     "static/media/iconMindNegativa.png": "/RoboticMinds/static/media/iconMindNegativa.f601dd7cf3b503c4cd5b.png",
     "static/media/RoboticMinds.png": "/RoboticMinds/static/media/RoboticMinds.1475cc03c1dbc648ca52.png",
     "static/media/YaroSt-Black.eot": "/RoboticMinds/static/media/YaroSt-Black.df219c57536f61976321.eot",
@@ -73,12 +74,12 @@
     "static/media/YaroRg.woff2": "/RoboticMinds/static/media/YaroRg.58f9b998c6fc88945c74.woff2",
     "static/media/onda.svg": "/RoboticMinds/static/media/onda.3341a11a3b2db3ba887e2743f6358be1.svg",
     "index.html": "/RoboticMinds/index.html",
-    "main.039ed57b.css.map": "/RoboticMinds/static/css/main.039ed57b.css.map",
-    "main.b66351c5.js.map": "/RoboticMinds/static/js/main.b66351c5.js.map",
+    "main.326dffbc.css.map": "/RoboticMinds/static/css/main.326dffbc.css.map",
+    "main.472ea038.js.map": "/RoboticMinds/static/js/main.472ea038.js.map",
     "453.de8b9350.chunk.js.map": "/RoboticMinds/static/js/453.de8b9350.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.039ed57b.css",
-    "static/js/main.b66351c5.js"
+    "static/css/main.326dffbc.css",
+    "static/js/main.472ea038.js"
   ]
 }
