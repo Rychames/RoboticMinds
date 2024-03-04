@@ -1,9 +1,12 @@
 {
   "files": {
-    "main.css": "/RoboticMinds/static/css/main.f9d01ca6.css",
-    "main.js": "/RoboticMinds/static/js/main.58b1a545.js",
+    "main.css": "/RoboticMinds/static/css/main.c7d11d00.css",
+    "main.js": "/RoboticMinds/static/js/main.4a3ec0d8.js",
     "static/js/453.de8b9350.chunk.js": "/RoboticMinds/static/js/453.de8b9350.chunk.js",
+    "static/media/imgRoboticLego.png": "/RoboticMinds/static/media/imgRoboticLego.5e890885a869f02c4bc9.png",
+    "static/media/imgRoboticInsc.png": "/RoboticMinds/static/media/imgRoboticInsc.5958ed8606e370cfa0ce.png",
     "static/media/imgRoboticSobre.png": "/RoboticMinds/static/media/imgRoboticSobre.cdc4ea3c73d59d58803f.png",
+    "static/media/imgRoboticMent.png": "/RoboticMinds/static/media/imgRoboticMent.1d44b75f2a1c81cc48b2.png",
     "static/media/imgRoboticEquip.png": "/RoboticMinds/static/media/imgRoboticEquip.7db8ee563f58a57ffb68.png",
     "static/media/imgRoboticProje.png": "/RoboticMinds/static/media/imgRoboticProje.2ee2cd29efac78011f65.png",
     "static/media/iconMindNegativa.png": "/RoboticMinds/static/media/iconMindNegativa.f601dd7cf3b503c4cd5b.png",
@@ -53,6 +56,7 @@
     "static/media/YaroRg-Thin.woff": "/RoboticMinds/static/media/YaroRg-Thin.7af9a947bd6b840ac84b.woff",
     "static/media/YaroSt-Bold.woff": "/RoboticMinds/static/media/YaroSt-Bold.23a70b93d45c97b80329.woff",
     "static/media/YaroOp-Bold.woff": "/RoboticMinds/static/media/YaroOp-Bold.0495c66b360dc0af1716.woff",
+    "static/media/imgParte5.png": "/RoboticMinds/static/media/imgParte5.a5bf37363cdfda77f32c.png",
     "static/media/YaroSt.woff": "/RoboticMinds/static/media/YaroSt.69fd8f79be3e01bd8846.woff",
     "static/media/YaroRg-Bold.woff": "/RoboticMinds/static/media/YaroRg-Bold.0f0789f321ade03721a1.woff",
     "static/media/YaroRg.woff": "/RoboticMinds/static/media/YaroRg.a6e4e2d18f37d664c78f.woff",
@@ -75,13 +79,13 @@
     "static/media/YaroRg.woff2": "/RoboticMinds/static/media/YaroRg.58f9b998c6fc88945c74.woff2",
     "static/media/onda.svg": "/RoboticMinds/static/media/onda.3341a11a3b2db3ba887e2743f6358be1.svg",
     "index.html": "/RoboticMinds/index.html",
-    "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5db267334c399a8250afa5f45df3bab7.svg",
-    "main.f9d01ca6.css.map": "/RoboticMinds/static/css/main.f9d01ca6.css.map",
-    "main.58b1a545.js.map": "/RoboticMinds/static/js/main.58b1a545.js.map",
+    "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5199fe1f66567d8ef49b4f32cf3539f6.svg",
+    "main.c7d11d00.css.map": "/RoboticMinds/static/css/main.c7d11d00.css.map",
+    "main.4a3ec0d8.js.map": "/RoboticMinds/static/js/main.4a3ec0d8.js.map",
     "453.de8b9350.chunk.js.map": "/RoboticMinds/static/js/453.de8b9350.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9d01ca6.css",
-    "static/js/main.58b1a545.js"
+    "static/css/main.c7d11d00.css",
+    "static/js/main.4a3ec0d8.js"
   ]
 }
