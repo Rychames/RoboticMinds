@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/RoboticMinds/static/css/main.27fa79cd.css",
-    "main.js": "/RoboticMinds/static/js/main.89718856.js",
-    "static/js/453.de8b9350.chunk.js": "/RoboticMinds/static/js/453.de8b9350.chunk.js",
+    "main.css": "/RoboticMinds/static/css/main.9fabe245.css",
+    "main.js": "/RoboticMinds/static/js/main.24dffd11.js",
+    "static/js/453.8ab44547.chunk.js": "/RoboticMinds/static/js/453.8ab44547.chunk.js",
     "static/media/imgRoboticLego.png": "/RoboticMinds/static/media/imgRoboticLego.5e890885a869f02c4bc9.png",
     "static/media/imgRoboticInsc.png": "/RoboticMinds/static/media/imgRoboticInsc.5958ed8606e370cfa0ce.png",
     "static/media/imgRoboticSobre.png": "/RoboticMinds/static/media/imgRoboticSobre.cdc4ea3c73d59d58803f.png",
@@ -79,14 +79,20 @@
     "static/media/YaroRg-Bold.woff2": "/RoboticMinds/static/media/YaroRg-Bold.0ad3b8dfa423484e510f.woff2",
     "static/media/YaroRg.woff2": "/RoboticMinds/static/media/YaroRg.58f9b998c6fc88945c74.woff2",
     "static/media/onda.svg": "/RoboticMinds/static/media/onda.3341a11a3b2db3ba887e2743f6358be1.svg",
+    "static/media/iconInstagram.svg": "/RoboticMinds/static/media/iconInstagram.ef128f8c41a89968c27824f82721b8d2.svg",
     "index.html": "/RoboticMinds/index.html",
+    "static/media/iconKey.svg": "/RoboticMinds/static/media/iconKey.aa87c279f817d93f7d3562f8dfa22266.svg",
+    "static/media/iconFacebook.svg": "/RoboticMinds/static/media/iconFacebook.b33491d9ae7e5c834ce186e96f467732.svg",
+    "static/media/iconEmail.svg": "/RoboticMinds/static/media/iconEmail.b10c44b21f5d9026770a205cef873eea.svg",
+    "static/media/iconPerson.svg": "/RoboticMinds/static/media/iconPerson.4e6d7f7ffb82238e6880f4d28e8acd21.svg",
     "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5199fe1f66567d8ef49b4f32cf3539f6.svg",
-    "main.27fa79cd.css.map": "/RoboticMinds/static/css/main.27fa79cd.css.map",
-    "main.89718856.js.map": "/RoboticMinds/static/js/main.89718856.js.map",
-    "453.de8b9350.chunk.js.map": "/RoboticMinds/static/js/453.de8b9350.chunk.js.map"
+    "static/media/iconTwitter.svg": "/RoboticMinds/static/media/iconTwitter.d1e8cfe818934b3c6954214086f38666.svg",
+    "main.9fabe245.css.map": "/RoboticMinds/static/css/main.9fabe245.css.map",
+    "main.24dffd11.js.map": "/RoboticMinds/static/js/main.24dffd11.js.map",
+    "453.8ab44547.chunk.js.map": "/RoboticMinds/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.27fa79cd.css",
-    "static/js/main.89718856.js"
+    "static/css/main.9fabe245.css",
+    "static/js/main.24dffd11.js"
   ]
 }
