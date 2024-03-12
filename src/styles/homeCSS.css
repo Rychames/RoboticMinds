@@ -1,0 +1,288 @@
+
+
+/* HEADER */
+body{
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+  .custom-toggler-icon {
+    content: ''; /* Necessário para que o SVG seja exibido */
+    display: inline-block;
+    width:  1em; /* Ajuste o tamanho conforme necessário */
+    height:  1em; /* Ajuste o tamanho conforme necessário */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0  0  24  24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4  6h16M4  12h16M4  18h16"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  
+  .navbar-toggler {
+    text-align: center;
+    border-color: white;
+  }
+  
+  .navbar-collapse {
+    text-align: center;
+  }
+  
+  
+  .navbar{
+    background-color: #403F44;
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    position: relative;
+    transition: color 0.3s;
+    margin: auto;
+  }
+  
+  .navbar-nav .nav-link:before {
+    content: "";
+    position: absolute;
+    bottom: 0px; /* Ajuste a margem inferior conforme necessário */
+    left: 0;
+    right: 0;
+    height: 2px; /* Altura do sublinhado */
+    background: linear-gradient(90deg, #49c1ea, #5f74b7); /* Degradê de cores */
+    transform-origin: 0% 50%;
+    transform: scaleX(0); /* Inicia sem sublinhado */
+    transition: transform 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #bdbdbd; /* Cor que você deseja quando hover */
+  }
+  
+  .navbar-nav .nav-link:hover:before {
+    transform: scaleX(1); /* Exibe o sublinhado */
+  }
+  
+  /* PARTE-1 */
+  
+  .parte1{
+    background-color: #403F44;
+  }
+  
+  .txtMind{
+    color: white;
+  }
+  
+  .txtEquipMind{
+    color: white;
+    font-family: 'Yaro Op';
+  }
+  
+  .btnRobotic{
+    width: 130px;
+    height: 40px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background:linear-gradient(90deg,  #49c1ea, #5f74b7);
+    border-radius: 25px;
+    font-family: 'Yaro Op';
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btnRobotic:hover{
+    background: linear-gradient(90deg, #3ba6c9, #5f74b7);
+    border: 2px white solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btnRobotic:hover{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra maior quando o botão é pressionado */
+    transform: translateY(2px); /* Move o botão para baixo */
+  }
+  
+  .iconEngrenagem_1 {
+    width: 8rem;
+    height: auto;
+  }
+  
+  
+  /* PARTE 2 */
+  
+  .imgSobre{
+    width: 30%;
+  }
+  
+  
+  /* PARTE 3 */
+  .parte3{
+    background-color: #403F44;
+  }
+  
+  .custom-title{
+    font-family: 'Yaro Op';
+    color: white;
+  }
+  
+  .imgProjeto{
+    width: 30%;
+  }
+  
+  
+  /* PARTE 4 */
+  
+  .parte4{
+    background-color: #49c1ea;
+  }
+  
+  .custom-img.stylePT4 {
+    border-radius: 100%;
+    border: solid 10px white;
+    width: 180px; /* Defina a largura e a altura para garantir que a imagem seja quadrada */
+    height: 180px;
+    object-fit: cover; /* Isso garante que a imagem cubra todo o espaço disponível sem distorcer */
+   }
+  
+  
+  /* PARTE 5 */
+  
+  .parte5{
+    background-color: #49c1ea;
+  }
+  
+  .custom-img.stylePT5 {
+    border-radius: 100%;
+    border: solid 10px white;
+    width: 180px; /* Defina a largura e a altura para garantir que a imagem seja quadrada */
+    height: 180px;
+    object-fit: cover; /* Isso garante que a imagem cubra todo o espaço disponível sem distorcer */
+   }
+  
+   /* PARTE 6 */
+  
+   .parte6{
+    width: auto;
+    height: auto;
+    background-image: url('/src/images/imgRoboticLego.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   }
+  
+   .txtForms{
+    font-family: 'Yaro Op';
+    color: white;
+   }
+  
+   .custom-forms{
+  
+    height: 40px;
+   }
+  
+  
+   .footer{
+    background-color: #403F44;
+   }
+  
+   .bi{
+    color: white;
+   }
+  
+   .txtFooter{
+    color: white;
+   }
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* RESPONSIVIDADE */
+  
+  /* Tv */
+  @media (min-width: 1400px) {
+    .txtEquipMind{
+      font-size: 50px;
+    }
+    .imgRoboticHeader{
+      width: 50%;
+    }
+  
+    /* Resposividade Parte 2 */
+    .imgSobre{
+      width: 10%;
+    }
+  
+    .imgGenerica{
+      width: 50%;
+    }
+  
+    .txtSobre{
+      max-width: 300px;
+    }
+    
+  }
+  
+  /* Notebooks Computadores */
+  @media (min-width: 768px) {
+    .txtEquipMind{
+      font-size: 40px;
+    }
+    .imgRoboticHeader{
+      width: 55%;
+    }
+    .imgSobre{
+      width: 30%;
+    }
+  
+    /* Responsividade Parte 3 */
+    .imgProjeto{
+      width: 30%;
+    }
+  }
+  
+  /* Tablets */
+  @media (min-width: 930px) {
+    .txtEquipMind{
+      font-size: 30px;
+    }
+  
+  }
+  
+  @media (max-width: 930px) {
+    .imgSobre{
+      width: 60%;
+    }
+  
+    .imgProjeto{
+      width: 60%;
+    }
+  }
