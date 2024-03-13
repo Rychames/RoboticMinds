@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RoboticMinds/static/css/main.9fabe245.css",
-    "main.js": "/RoboticMinds/static/js/main.ac42a0cf.js",
+    "main.js": "/RoboticMinds/static/js/main.969b668f.js",
     "static/js/453.8ab44547.chunk.js": "/RoboticMinds/static/js/453.8ab44547.chunk.js",
     "static/media/imgRoboticLego.png": "/RoboticMinds/static/media/imgRoboticLego.5e890885a869f02c4bc9.png",
     "static/media/imgRoboticInsc.png": "/RoboticMinds/static/media/imgRoboticInsc.5958ed8606e370cfa0ce.png",
@@ -88,11 +88,11 @@
     "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5199fe1f66567d8ef49b4f32cf3539f6.svg",
     "static/media/iconTwitter.svg": "/RoboticMinds/static/media/iconTwitter.d1e8cfe818934b3c6954214086f38666.svg",
     "main.9fabe245.css.map": "/RoboticMinds/static/css/main.9fabe245.css.map",
-    "main.ac42a0cf.js.map": "/RoboticMinds/static/js/main.ac42a0cf.js.map",
+    "main.969b668f.js.map": "/RoboticMinds/static/js/main.969b668f.js.map",
     "453.8ab44547.chunk.js.map": "/RoboticMinds/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9fabe245.css",
-    "static/js/main.ac42a0cf.js"
+    "static/js/main.969b668f.js"
   ]
 }
