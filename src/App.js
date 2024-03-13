@@ -3,6 +3,9 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/home.js'
 import Login from './pages/login.js'
+import Project from './pages/project.js'
+import teacherProfile from './pages/teacherProfile.js';
+
 
 function App() {
   return (
@@ -10,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login />}/>
-        <Route path='/projetos' element={<p>Projetos</p>}/>
-        <Route path='/sobre' element={<p>Sobre</p>}/>
+        <Route path='/projetos' element={<Project />}/>
+        <Route path='/sobre' element={<p></p>}/>
+        <Route path='/profile' element={<teacherProfile />} />
       </Routes>
     </Router>
   );

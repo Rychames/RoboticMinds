@@ -1,33 +1,114 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/loginCSS.css';
+import { useNavigate } from 'react-router-dom';
 import iconKey from '../images/iconKey.svg'
 import iconEmail from '../images/iconEmail.svg'
 import iconPerson from '../images/iconPerson.svg'
 import iconInstragram from '../images/iconInstagram.svg'
 import iconFacebook from '../images/iconFacebook.svg'
 import iconTwitter from '../images/iconTwitter.svg'
-import BackgroundGear from '../components/BackgroundGear';
+
+import '../styles/loginCSS.css';
+import '../scripts/loginRedirect.js'
 
 function Login() {
     const [bodyClass, setBodyClass] = useState('');
+    const navigate = useNavigate();
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     // Manipulador de eventos para o botão de sign in
-    const handleSignInClick = () => {
+    const handleStyleLogin = () => {
         setBodyClass('login-sign-in-js');
     };
 
     // Manipulador de eventos para o botão de sign up
-    const handleSignUpClick = () => {
+    const handleStyleRegistre = () => {
         setBodyClass('login-sign-up-js');
     };
 
-    // Atualiza a classe do body quando o estado muda
+    const handleClickLogin = async (event) => {
+        event.preventDefault();
+
+        const userData = {
+            email: email,
+            password: password
+        };
+
+        try {
+            const response = await fetch('https://sheltered-waters-90249-dbb39c4c8c4c.herokuapp.com/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Erro ao fazer login');
+            }
+    
+            const data = await response.json();
+
+            const token = data.token;
+            if (token) {
+                localStorage.setItem('authToken', token);
+                navigate('/');
+            } else {
+                throw new Error('Token de autenticação não encontrado na resposta');
+            }
+    
+
+        } catch (error) {
+            alert('erro ao fazer login')
+            console.error('Erro ao fazer login:', error);
+        }
+
+    };
+
+
+
+    const handleClickRegistre = async (event) => {
+        event.preventDefault(); 
+        const userData = {
+            name: name,
+            email: email,
+            password: password
+        };
+
+        try {
+
+            const response = await fetch('https://sheltered-waters-90249-dbb39c4c8c4c.herokuapp.com/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao registrar');
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+
+
+        } catch (error) {
+            console.error('Erro ao registrar:', error);
+        }
+
+    };
+
+
     useEffect(() => {
         document.body.className = bodyClass;
     }, [bodyClass]);
 
     return (
-        
+
         <div className="login-container">
             <div className="login-content login-first-content">
                 <div className="login-first-column">
@@ -38,7 +119,7 @@ function Login() {
                     <p className="login-description login-description-primary">
                         por favor informe seu login
                     </p>
-                    <button id="signin" className="login-btn login-btn-primary" onClick={handleSignInClick}>
+                    <button id="signin" className="login-btn login-btn-primary" onClick={handleStyleLogin}>
                         login
                     </button>
                 </div>
@@ -68,19 +149,19 @@ function Login() {
                         ou use seu email para registrar:
                     </p>
                     <form className="login-form">
-                        <label className="login-label-input" htmlFor="">
+                        <label className="login-label-input" >
                             <img src={iconPerson} className='icon-custom'></img>
-                            <input type="text" placeholder="Name" />
+                            <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
                         </label>
-                        <label className="login-label-input" htmlFor="">
+                        <label className="login-label-input" >
                             <img src={iconEmail} className='icon-custom'></img>
-                            <input type="email" placeholder="Email" />
+                            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                         </label>
-                        <label className="login-label-input" htmlFor="">
+                        <label className="login-label-input">
                             <img src={iconKey} className='icon-custom'></img>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         </label>
-                        <button className="login-btn login-btn-second" onClick={handleSignUpClick}>Cadastre-se</button>
+                        <button className="login-btn login-btn-second" onClick={handleClickRegistre}>Cadastre-se</button>
                     </form>
                 </div>
                 {/* second column */}
@@ -95,8 +176,8 @@ function Login() {
                     <p className="login-description login-description-primary">
                         e faça parte da Robotic Minds
                     </p>
-                    <button id="signup" className="login-btn login-btn-primary" onClick={handleSignUpClick}>
-                        Cadastre-se 
+                    <button id="signup" className="login-btn login-btn-primary" onClick={handleStyleRegistre}>
+                        Cadastre-se
                     </button>
                 </div>
                 <div className="login-second-column">
@@ -125,18 +206,18 @@ function Login() {
                         ou use seu email:
                     </p>
                     <form className="login-form">
-                        <label className="login-label-input" htmlFor="">
+                        <label className="login-label-input">
                             <img src={iconEmail} className='icon-custom'></img>
-                            <input type="email" placeholder="Email" />
+                            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </label>
-                        <label className="login-label-input" htmlFor="">
+                        <label className="login-label-input">
                             <img src={iconKey} className='icon-custom'></img>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         </label>
                         <a className="login-password" href="#">
                             Esqueceu sua senha?
                         </a>
-                        <button className="login-btn login-btn-second" onClick={handleSignInClick}>Login</button>
+                        <button className="login-btn login-btn-second" onClick={handleClickLogin}>Login</button>
                     </form>
                 </div>
                 {/* second column */}
