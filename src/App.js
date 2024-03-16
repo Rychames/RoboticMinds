@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home.js'
 import Login from './pages/login.js'
 import Project from './pages/project.js'
-import teacherProfile from './pages/teacherProfile.js';
+
 
 
 function App() {
