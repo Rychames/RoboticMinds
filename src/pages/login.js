@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import iconKey from '../images/iconKey.svg'
 import iconEmail from '../images/iconEmail.svg'
@@ -12,11 +11,14 @@ import iconInstragram from '../images/iconInstagram.svg'
 import iconFacebook from '../images/iconFacebook.svg'
 import iconTwitter from '../images/iconTwitter.svg'
 import defaultProfilePhoto from '../images/imgGenericaFoto.png';
+import LoginRequest from '../scripts/Requests.js';
+
 
 
 import '../styles/loginCSS.css';
 import '../scripts/loginRedirect.js'
 import '../scripts/pegaIMG.js'
+import '../scripts/Requests.js'
 
 function Login() {
     const [bodyClass, setBodyClass] = useState('');
@@ -31,6 +33,19 @@ function Login() {
     const [cpf, setCpf] = useState('');
     const [gender, setGender] = useState('');
 
+
+
+
+
+    const dadosLogin = () =>{
+
+        const login = LoginRequest();
+
+        const enviarDados = (userData) => {
+            login(userData);
+        }
+    }
+
     // Manipulador de eventos para o botão de sign in
     const handleStyleLogin = () => {
         setBodyClass('login-sign-in-js');
@@ -43,52 +58,6 @@ function Login() {
 
 
 
-    // const handlePhotoChange = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onloadend = () => {
-    //             setPhoto(file); // Atualiza o estado com o arquivo de imagem selecionado
-    //             setPhotoURL(reader.result); // Atualiza a URL da imagem selecionada
-    //         };
-    //         reader.readAsDataURL(file);
-    //     }
-    //     // Não faz nada se nenhum arquivo for selecionado, mantendo a imagem padrão
-    // };
-
-
-
-    // https://sheltered-waters-90249-dbb39c4c8c4c.herokuapp.com/api/login
-    // Adicione o middleware multer.none() para lidar com multipart/form-data sem processar arquivos
-
-    const handleClickLogin = async (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-
-        formData.append('username', name);
-        formData.append('password', password);
-
-        try {
-            const response = await axios.post('https://roboticminds.onrender.com/token/', formData);
-
-            const data = response.data;
-
-            if (data.access && data.refresh) {
-                // Aqui você pode armazenar os tokens conforme necessário
-                localStorage.setItem('authToken', data.access);
-                navigate('/'); // Redireciona para a página inicial ou outra página após o login bem-sucedido
-            } else {
-                throw new Error('Tokens de autenticação não encontrados na resposta');
-            }
-
-        } catch (error) {
-            alert('erro ao fazer login');
-            console.error('Erro ao fazer login:', error);
-            if (error.response) {
-                console.error('Detalhes do erro:', error.response.data);
-            }
-        }
-    };
 
     const handleClickRegistre = async (event) => {
         event.preventDefault();
@@ -113,7 +82,9 @@ function Login() {
                 },
                 body: JSON.stringify(userData), // Convertendo o objeto para uma string JSON
             });
-
+            
+            console.log(userData)
+            
             if (!response.ok) {
                 throw new Error('Erro ao registrar, errors: ' + response.error);
             }
@@ -121,16 +92,25 @@ function Login() {
             const data = await response.json();
 
 
-            if(data[0] = "Um usuário com este nome de usuário já existe"){
-                console.log("\nNão foi possivel cadastrar usuario!\n")
+            if(data.error){
+                console.log(`Errors: ${data.error}`)
             }
             else{
                 console.log("\nUsuario Cadastrado com sucesso!\n")
             }
 
+            /*
+            {
+                "errors": {
+                    "username": [
+                        "Um usuário com este nome de usuário já existe."
+                    ]
+                }
+            }
+            */
+
             navigate("/");
-
-
+            
         } catch (error) {
             alert('Erro ao registrar');
             console.error('Erro ao registrar:', error);
@@ -244,8 +224,8 @@ function Login() {
                             <img src={iconGender} className='icon-custom'></img>
                             <select className="gender-select" onChange={(e) => setGender(e.target.value)}>
                                 <option value="">Selecione o sexo</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
                             </select>
                         </label>
                         <button className="login-btn login-btn-second" onClick={handleClickRegistre}>Cadastre-se</button>
@@ -304,7 +284,7 @@ function Login() {
                         <a className="login-password" href="#">
                             Esqueceu sua senha?
                         </a>
-                        <button className="login-btn login-btn-second" onClick={handleClickLogin}>Login</button>
+                        <button className="login-btn login-btn-second" onClick={() => enviarDados({username: 'name'})}>Login</button>
                     </form>
                 </div>
                 {/* second column */}

@@ -6,7 +6,6 @@ import Login from './pages/login.js'
 import Project from './pages/project.js'
 
 
-
 function App() {
   return (
     <Router>
@@ -14,7 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login />}/>
         <Route path='/projetos' element={<Project />}/>
-        <Route path='/sobre' element={<p></p>}/>
+        <Route path='/sobre' element={<></>}/>
         <Route path='/profile' element={<teacherProfile />} />
       </Routes>
     </Router>

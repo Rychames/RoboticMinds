@@ -16,7 +16,7 @@ export function logout() {
 // Componente para redirecionar o usuário com base no status de login
 export function LoginRedirect() {
   const navigate = useNavigate();
-
+  navigate('/');
   useEffect(() => {
     if (checkLoginStatus()) {
       navigate('/');
