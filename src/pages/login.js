@@ -55,7 +55,7 @@
             
             try {
                 const tokenAcess = await loginUser(credentials, navigate);
-                localStorage.setItem('token',tokenAcess);
+                localStorage.setItem('authToken',tokenAcess);
                 console.log(tokenAcess);    
                 console.log("Login bem-sucedido!");
             } catch (error) {
