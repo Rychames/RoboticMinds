@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RoboticMinds/static/css/main.9fabe245.css",
-    "main.js": "/RoboticMinds/static/js/main.969b668f.js",
+    "main.css": "/RoboticMinds/static/css/main.58eb65f0.css",
+    "main.js": "/RoboticMinds/static/js/main.ba219ca8.js",
     "static/js/453.8ab44547.chunk.js": "/RoboticMinds/static/js/453.8ab44547.chunk.js",
     "static/media/imgRoboticLego.png": "/RoboticMinds/static/media/imgRoboticLego.5e890885a869f02c4bc9.png",
     "static/media/imgRoboticInsc.png": "/RoboticMinds/static/media/imgRoboticInsc.5958ed8606e370cfa0ce.png",
@@ -80,19 +80,23 @@
     "static/media/YaroRg.woff2": "/RoboticMinds/static/media/YaroRg.58f9b998c6fc88945c74.woff2",
     "static/media/onda.svg": "/RoboticMinds/static/media/onda.3341a11a3b2db3ba887e2743f6358be1.svg",
     "static/media/iconInstagram.svg": "/RoboticMinds/static/media/iconInstagram.ef128f8c41a89968c27824f82721b8d2.svg",
+    "static/media/iconBirthDate.svg": "/RoboticMinds/static/media/iconBirthDate.2d0d0aa86b694fff7d077e52c3e33d1b.svg",
     "index.html": "/RoboticMinds/index.html",
     "static/media/iconKey.svg": "/RoboticMinds/static/media/iconKey.aa87c279f817d93f7d3562f8dfa22266.svg",
+    "static/media/iconCPF.svg": "/RoboticMinds/static/media/iconCPF.4c8d650455103624fede63e94c8eba07.svg",
     "static/media/iconFacebook.svg": "/RoboticMinds/static/media/iconFacebook.b33491d9ae7e5c834ce186e96f467732.svg",
     "static/media/iconEmail.svg": "/RoboticMinds/static/media/iconEmail.b10c44b21f5d9026770a205cef873eea.svg",
+    "static/media/iconPhoto.svg": "/RoboticMinds/static/media/iconPhoto.3e7aec1528218129206f92b5faa4bcc5.svg",
+    "static/media/iconGender.svg": "/RoboticMinds/static/media/iconGender.b306385e30370f58eaf0a654336ddb75.svg",
     "static/media/iconPerson.svg": "/RoboticMinds/static/media/iconPerson.4e6d7f7ffb82238e6880f4d28e8acd21.svg",
     "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5199fe1f66567d8ef49b4f32cf3539f6.svg",
     "static/media/iconTwitter.svg": "/RoboticMinds/static/media/iconTwitter.d1e8cfe818934b3c6954214086f38666.svg",
-    "main.9fabe245.css.map": "/RoboticMinds/static/css/main.9fabe245.css.map",
-    "main.969b668f.js.map": "/RoboticMinds/static/js/main.969b668f.js.map",
+    "main.58eb65f0.css.map": "/RoboticMinds/static/css/main.58eb65f0.css.map",
+    "main.ba219ca8.js.map": "/RoboticMinds/static/js/main.ba219ca8.js.map",
     "453.8ab44547.chunk.js.map": "/RoboticMinds/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fabe245.css",
-    "static/js/main.969b668f.js"
+    "static/css/main.58eb65f0.css",
+    "static/js/main.ba219ca8.js"
   ]
 }
