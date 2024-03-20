@@ -17,7 +17,8 @@ export const loginUser = async (credentials, navigate) => {
 export const registerUser = async (userData, navigate) => {
  try {
     // Substitua esta URL pela sua API de registro
-    const response = await axios.post('https://roboticminds.onrender.com/api/users/', userData);
+    const response = await axios.post('https://roboticminds.onrender.com/api/user/register/', userData);
+    alert("Usuario Cadastrado!");
 
     // Aqui você pode definir a lógica para lidar com o sucesso do registro
     // Por exemplo, redirecionar o usuário para outra página

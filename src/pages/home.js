@@ -37,6 +37,8 @@ const itemsMent = [
   { title: 'Walter Claudino', },
 ];
 
+function teste(){}
+
 export default function home(onChange) {
   return (
     <>
@@ -123,9 +125,9 @@ export default function home(onChange) {
             </div>
             <div className="col-6 col-xxl-4 col-md-4 align-self-center mb-5 mt-5">
               <p className="txtForms">Nome</p>
-              <input type="text" onChange={onChange} className="form-control custom-forms w-xl-50" />
+              <input type="text" onChange={teste()} className="form-control custom-forms w-xl-50" />
               <p className="txtForms">Email</p>
-              <input type="email" onChange={onChange} className="form-control custom-forms "></input>
+              <input type="email" onChange={teste()} className="form-control custom-forms "></input>
               <button className="btnRobotic btnInsc mt-3 align-self-center">Inscrever-se</button>
             </div>
           </div>
