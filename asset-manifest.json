@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RoboticMinds/static/css/main.58eb65f0.css",
-    "main.js": "/RoboticMinds/static/js/main.ba219ca8.js",
+    "main.css": "/RoboticMinds/static/css/main.3a65556e.css",
+    "main.js": "/RoboticMinds/static/js/main.9b7d1d2b.js",
     "static/js/453.8ab44547.chunk.js": "/RoboticMinds/static/js/453.8ab44547.chunk.js",
     "static/media/imgRoboticLego.png": "/RoboticMinds/static/media/imgRoboticLego.5e890885a869f02c4bc9.png",
     "static/media/imgRoboticInsc.png": "/RoboticMinds/static/media/imgRoboticInsc.5958ed8606e370cfa0ce.png",
@@ -90,13 +90,14 @@
     "static/media/iconGender.svg": "/RoboticMinds/static/media/iconGender.b306385e30370f58eaf0a654336ddb75.svg",
     "static/media/iconPerson.svg": "/RoboticMinds/static/media/iconPerson.4e6d7f7ffb82238e6880f4d28e8acd21.svg",
     "static/media/divisoria.svg": "/RoboticMinds/static/media/divisoria.5199fe1f66567d8ef49b4f32cf3539f6.svg",
+    "static/media/iconRegistration.svg": "/RoboticMinds/static/media/iconRegistration.aa74ba817d51c89daa10ac13737541c1.svg",
     "static/media/iconTwitter.svg": "/RoboticMinds/static/media/iconTwitter.d1e8cfe818934b3c6954214086f38666.svg",
-    "main.58eb65f0.css.map": "/RoboticMinds/static/css/main.58eb65f0.css.map",
-    "main.ba219ca8.js.map": "/RoboticMinds/static/js/main.ba219ca8.js.map",
+    "main.3a65556e.css.map": "/RoboticMinds/static/css/main.3a65556e.css.map",
+    "main.9b7d1d2b.js.map": "/RoboticMinds/static/js/main.9b7d1d2b.js.map",
     "453.8ab44547.chunk.js.map": "/RoboticMinds/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.58eb65f0.css",
-    "static/js/main.ba219ca8.js"
+    "static/css/main.3a65556e.css",
+    "static/js/main.9b7d1d2b.js"
   ]
 }
