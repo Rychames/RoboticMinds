@@ -14,7 +14,7 @@ export const getTokenApiURL = () => {
 }
 
 
-export const getToken = async () => {
+export const getToken = () => {
   try {
     let token = localStorage.getItem('token');
     return token ? token : null; 

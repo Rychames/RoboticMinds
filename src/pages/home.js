@@ -25,20 +25,6 @@ const itemsProjeto = [
   { title: 'Item 4', },
 ];
 
-
-
-/*
-
-const itemsEquip = [
-  { title: 'Rayner Chames', },
-  { title: 'Camila Santana', },
-  { title: 'Matheus Ricardo', },
-  { title: 'Matheus Ricardo', },
-  { title: 'Matheus Ricardo', },
-  
-];
-*/
-
 const itemsEquip = await getUser()
 console.log(itemsEquip)
 
