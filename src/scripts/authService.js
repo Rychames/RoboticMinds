@@ -1,27 +1,48 @@
-// authService.js
 import axios from 'axios';
 
+export const getApiURL = () => {
+  return "https://roboticminds-a038b27b4466.herokuapp.com"
+}
+export const getUsersApiURL = () => {
+  return "https://roboticminds-a038b27b4466.herokuapp.com/api/users/"
+}
+export const getRegisterApiURL = () => {
+  return "https://roboticminds-a038b27b4466.herokuapp.com/api/users/register/"
+}
+export const getTokenApiURL = () => {
+  return "https://roboticminds-a038b27b4466.herokuapp.com/token/"
+}
+
+
+export const getToken = async () => {
+  try {
+    let token = localStorage.getItem('token');
+    return token ? token : null; 
+  } catch (error) {
+    console.error("Error while getting token:", error);
+    return null;
+  }
+ };
+
 export const loginUser = async (credentials, navigate) => {
- try {
-    // Substitua esta URL pela sua API de login
-    const response = await axios.post('https://roboticminds.onrender.com/token/', credentials);
+  const tokenApiURL = getTokenApiURL();
+  try {
+    const response = await axios.post(tokenApiURL, credentials);
 
     navigate('/');
     return response.data;
- } catch (error) {
+  } catch (error) {
     console.error('Erro ao fazer login:', error);
     throw error;
  }
 };
 
 export const registerUser = async (userData, navigate) => {
+  const registerApiURL = getRegisterApiURL();
  try {
-    // Substitua esta URL pela sua API de registro
-    const response = await axios.post('https://roboticminds.onrender.com/api/user/register/', userData);
+    const response = await axios.post(registerApiURL, userData);
     alert("Usuario Cadastrado!");
 
-    // Aqui você pode definir a lógica para lidar com o sucesso do registro
-    // Por exemplo, redirecionar o usuário para outra página
     navigate('/');
     return response.data;
  } catch (error) {
