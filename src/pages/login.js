@@ -13,13 +13,9 @@ import iconTwitter from '../images/iconTwitter.svg'
 import iconRegistration from '../images/iconRegistration.svg'
 import defaultProfilePhoto from '../images/imgGenericaFoto.png';
 
-
 import { loginUser, registerUser } from '../scripts/authService.js';
 import StudentForm from '../components/StudentForm';
 import VisitorForm from '../components/VisitorForm';
-
-
-
 
 import '../styles/loginCSS.css';
 import '../scripts/loginRedirect.js'
