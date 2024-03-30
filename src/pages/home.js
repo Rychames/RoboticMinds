@@ -12,7 +12,8 @@ import Header from '../components/Header.js';
 import Footer from '../components/footer.js';
 import Divisoria from '../components/divisoria';
 import CardList from '../components/CardList';
-
+import authService from '../scripts/authService.js'
+import { getUser } from '../scripts/userService.js'
 
 import '../styles/homeCSS.css'
 import '../fonts/stylesheet.css'
@@ -24,17 +25,12 @@ const itemsProjeto = [
   { title: 'Item 4', },
 ];
 
-const itemsEquip = [
-  { title: 'Rayner Chames', },
-  { title: 'Camila Santana', },
-  { title: 'Matheus Ricardo', },
-
-];
-
+const itemsEquip = await getUser()
+console.log(itemsEquip)
 
 const itemsMent = [
-  { title: 'Walter Claudino', },
-  { title: 'Walter Claudino', },
+  { username: 'Walter Claudino', },
+  { username: 'Walter Claudino', },
 ];
 
 function teste(){}
@@ -97,6 +93,8 @@ export default function home(onChange) {
 
       <Divisoria />
 
+    
+
       {/* PARTE 4 */}
       <div className="parte4 container-fluid">
         <div className="container ">
@@ -112,7 +110,6 @@ export default function home(onChange) {
           <CardList items={itemsMent} style="stylePT5" />
         </div>
       </div>
-
       <Divisoria />
 
       {/* PARTE 6 */}
