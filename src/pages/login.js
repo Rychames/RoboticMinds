@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import iconKey from '../images/iconKey.svg'
 import iconEmail from '../images/iconEmail.svg'
 import iconPerson from '../images/iconPerson.svg'
+import iconNamePerson from "../images/iconNamePerson.svg"
 import iconGender from '../images/iconGender.svg'
 import iconPhoto from '../images/iconPhoto.svg'
 import iconBirthDate from '../images/iconBirthDate.svg'
@@ -32,7 +33,9 @@ function Login() {
 
     const [photoURL, setPhotoURL] = useState(defaultProfilePhoto);
     const [photo, setPhoto] = useState(null);
+
     const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [registration, setRegistration] = useState('');
     const [password, setPassword] = useState('');
@@ -40,11 +43,17 @@ function Login() {
     const [cpf, setCpf] = useState('');
     const [gender, setGender] = useState('');
 
+
+    // Logica css
+
+    useEffect(() => {
+        document.body.className = bodyClass;
+    }, [bodyClass]);
+
     const handleUserTypeSelection = (type) => {
         setUserType(type);
         setIsDialogVisible(false);
     };
-
 
     const handleStyleLogin = () => {
         setBodyClass('login-sign-in-js');
@@ -54,9 +63,74 @@ function Login() {
         setBodyClass('login-sign-up-js');
     };
 
+
+
+    // Logica de validação e chamada do backend
+
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    function isValidPassword(password) {
+        const re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        return re.test(String(password));
+    }
+
+    function isValidRegistration(registration) {
+        const re = /^\d{10}$/;
+        return re.test(String(registration));
+    }
+
+    const handleRegistrationChange = (event) => {
+        const rawRegistration = event.target.value.replace(/\D/g, '');
+        if (rawRegistration.length <= 10) {
+            setRegistration(rawRegistration);
+        }
+    };
+
+    function formatCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+        cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+        return cpf;
+    }
+
+    const handleCpfChange = (event) => {
+        let rawCpf = event.target.value.replace(/\D/g, '');
+        if (rawCpf.length > 11) {
+            rawCpf = rawCpf.slice(0, 11); // Limita a entrada a 11 dígitos
+        }
+        const formattedCpf = formatCPF(rawCpf);
+        setCpf(formattedCpf);
+    };
+
+
+    function isValidCPF(cpf) {
+        cpf = formatCPF(cpf);
+        const re = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+        return re.test(cpf);
+    }
+
+    function isValidBirthDate(birthDate) {
+        const minBirthDate = new Date(1920, 0, 1);
+        return new Date(birthDate) >= minBirthDate;
+    }
+
+
+
+
+
     const handleClickLogin = async (event) => {
         event.preventDefault();
         setLoading(true);
+
+
+        if (!isValidPassword(password)) {
+            alert('Senha inválida');
+            setLoading(false);
+            return;
+        }
 
         const credentials = {
             username: name,
@@ -73,10 +147,41 @@ function Login() {
         }
     };
 
+
     const handleClickRegistre = async (event) => {
         event.preventDefault();
-        console.log("Passou aqui!");
         setLoading(true);
+
+        if (!isValidEmail(email)) {
+            alert('Email inválido');
+            setLoading(false);
+            return;
+        }
+
+        if (!isValidPassword(password)) {
+            alert('Senha inválida');
+            setLoading(false);
+            return;
+        }
+
+        if (!isValidRegistration(registration)) {
+            alert('Matrícula inválida');
+            setLoading(false);
+            return;
+        }
+
+        const formattedCPF = formatCPF(cpf);
+        if (!isValidCPF(formattedCPF)) {
+            alert('CPF inválido');
+            setLoading(false);
+            return;
+        }
+
+        if (!isValidBirthDate(birthDate)) {
+            alert('Data de nascimento inválida');
+            setLoading(false);
+            return;
+        }
 
         const userData = {
             username: name,
@@ -89,9 +194,6 @@ function Login() {
         };
         try {
             const teste = await registerUser(userData, navigate);
-
-            console.log(teste);
-            console.log("\nUsuario Cadastrado com sucesso!\n");
         } catch (error) {
             alert('Erro ao registrar');
             console.error('Erro ao registrar:', error);
@@ -100,14 +202,6 @@ function Login() {
             setLoading(false);
         }
     };
-
-
-
-
-    useEffect(() => {
-        document.body.className = bodyClass;
-    }, [bodyClass]);
-
 
 
     return (
@@ -139,10 +233,11 @@ function Login() {
                         </div>
                     ) : userType === 'student' ? (
                         <StudentForm
-                            icons={{ iconPerson, iconKey, iconEmail, iconCPF, iconBirthDate, iconGender, iconInstragram, iconFacebook, iconTwitter, iconRegistration }}
-                            setPhotoURL={setPhotoURL} setPhoto={setPhoto} setName={setName} setRegistration={setRegistration} setEmail={setEmail} setPassword={setPassword} setBirthDate={setBirthDate} setCpf={setCpf} setGender={setGender}
+                            icons={{ iconPerson,iconNamePerson, iconKey, iconEmail, iconCPF, iconBirthDate, iconGender, iconInstragram, iconFacebook, iconTwitter, iconRegistration }}
+                            setPhotoURL={setPhotoURL} setPhoto={setPhoto} setUsername={setUsername} setName={setName} registration={registration} setEmail={setEmail} setPassword={setPassword} setBirthDate={setBirthDate} cpf={cpf} setGender={setGender}
                             handleClickRegistre={handleClickRegistre}
-
+                            handleCpfChange={handleCpfChange}
+                            handleRegistrationChange={handleRegistrationChange} 
                         />
                     ) : (
                         <VisitorForm

@@ -4,7 +4,7 @@ import defaultProfilePhoto from '../images/imgGenericaFoto.png';
 
 
 
-function StudentForm({ icons, setPhotoURL, setPhoto, setName, setEmail, setRegistration, setPassword, setBirthDate, setCpf, setGender, handleClickRegistre }) {
+function StudentForm({ icons, setPhotoURL, setPhoto, setUsername,setName, setEmail, registration, setPassword, setBirthDate, cpf, setGender, handleClickRegistre, handleRegistrationChange, handleCpfChange }) {
 
     return (
         <>
@@ -56,6 +56,10 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setName, setEmail, setRegis
                     <input type="text" placeholder="Nome Completo" onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label className="login-label-input">
+                    <img src={icons.iconNamePerson} className='icon-custom'></img>
+                    <input type="text" placeholder="Nome de Usuário" onChange={(e) => setUsername(e.target.value)} />
+                </label>
+                <label className="login-label-input">
                     <img src={icons.iconEmail} className='icon-custom'></img>
                     <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                 </label>
@@ -65,11 +69,11 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setName, setEmail, setRegis
                 </label>
                 <label className="login-label-input">
                     <img src={icons.iconRegistration} className='icon-custom'></img>
-                    <input type="registration" placeholder="Matricula" onChange={(e) => setRegistration(e.target.value)} />
+                    <input type="text" placeholder="Matrícula" value={registration} onChange={handleRegistrationChange} required />
                 </label>
                 <label className="login-label-input">
                     <img src={icons.iconCPF} className='icon-custom'></img>
-                    <input type="text" placeholder="CPF" onChange={(e) => setCpf(e.target.value)} />
+                    <input type="text" placeholder="CPF" value={cpf} onChange={handleCpfChange} required />
                 </label>
                 <label className="login-label-input">
                     <img src={icons.iconBirthDate} className='icon-custom'></img>
@@ -78,7 +82,6 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setName, setEmail, setRegis
                 <label className="login-label-input">
                     <img src={icons.iconGender} className='icon-custom'></img>
                     <select className="gender-select" onChange={(e) => setGender(e.target.value)}>
-                        <option value="">Selecione o sexo</option>
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
                     </select>
