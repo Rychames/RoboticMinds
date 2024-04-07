@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
 
 import defaultProfilePhoto from '../images/imgGenericaFoto.png';
 
 
 
-function StudentForm({ icons, setPhotoURL, setPhoto, setUsername,setName, setEmail, registration, setPassword, setBirthDate, cpf, setGender, handleClickRegistre, handleRegistrationChange, handleCpfChange }) {
+function StudentForm({ icons, setProfileImage, profileImage, setUsername, setName, setEmail, registration, setPassword, setBirthDate, cpf, setGender, handleClickRegistre, handleRegistrationChange, handleCpfChange }) {
+
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setProfileImage(imageUrl);
+        }
+    };
 
     return (
         <>
@@ -37,7 +47,7 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setUsername,setName, setEma
                     <label htmlFor="profile-image-input">
                         <img
                             id="profile-image-preview"
-                            src={defaultProfilePhoto}
+                            src={profileImage}
                             alt="Imagem de Perfil"
                         />
                     </label>
@@ -46,8 +56,8 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setUsername,setName, setEma
                         id="profile-image-input"
                         accept="image/*"
                         style={{ display: "none" }}
+                        onChange={handleImageChange}
                     />
-
                 </div>
                 <p id='txtLabelImg'>Foto de Perfil</p>
 
@@ -87,7 +97,7 @@ function StudentForm({ icons, setPhotoURL, setPhoto, setUsername,setName, setEma
                     </select>
                 </label>
                 <button className="login-btn login-btn-second" onClick={handleClickRegistre}>Cadastre-se</button>
-            </form>
+            </form >
         </>
 
     );

@@ -42,7 +42,7 @@ function Login() {
     const [birthDate, setBirthDate] = useState('');
     const [cpf, setCpf] = useState('');
     const [gender, setGender] = useState('');
-
+    const [profileImage, setProfileImage] = useState(defaultProfilePhoto);
 
     // Logica css
 
@@ -190,7 +190,8 @@ function Login() {
             birth_date: birthDate,
             cpf: cpf,
             registration: registration,
-            sex: gender
+            sex: gender,
+            profileImage: profileImage
         };
         try {
             const teste = await registerUser(userData, navigate);
@@ -234,7 +235,7 @@ function Login() {
                     ) : userType === 'student' ? (
                         <StudentForm
                             icons={{ iconPerson,iconNamePerson, iconKey, iconEmail, iconCPF, iconBirthDate, iconGender, iconInstragram, iconFacebook, iconTwitter, iconRegistration }}
-                            setPhotoURL={setPhotoURL} setPhoto={setPhoto} setUsername={setUsername} setName={setName} registration={registration} setEmail={setEmail} setPassword={setPassword} setBirthDate={setBirthDate} cpf={cpf} setGender={setGender}
+                            setProfileImage={setProfileImage} profileImage={profileImage} setUsername={setUsername} setName={setName} registration={registration} setEmail={setEmail} setPassword={setPassword} setBirthDate={setBirthDate} cpf={cpf} setGender={setGender}
                             handleClickRegistre={handleClickRegistre}
                             handleCpfChange={handleCpfChange}
                             handleRegistrationChange={handleRegistrationChange} 
