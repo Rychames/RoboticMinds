@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 import iconKey from '../images/iconKey.svg'
 import iconEmail from '../images/iconEmail.svg'
 import iconPerson from '../images/iconPerson.svg'
 import iconNamePerson from "../images/iconNamePerson.svg"
 import iconGender from '../images/iconGender.svg'
-import iconPhoto from '../images/iconPhoto.svg'
 import iconBirthDate from '../images/iconBirthDate.svg'
 import iconCPF from '../images/iconCPF.svg'
 import iconInstragram from '../images/iconInstagram.svg'
@@ -193,11 +194,19 @@ function Login() {
             sex: gender,
             profileImage: profileImage
         };
+        
         try {
-            const teste = await registerUser(userData, navigate);
+            const tokenAcess = await registerUser(userData, navigate);
+            localStorage.setItem('authToken', tokenAcess);
+            Swal.fire({
+                title: "<strong>Usuário Cadastrado com Sucesso!</strong>",
+                icon: "success",
+            });
         } catch (error) {
-            alert('Erro ao registrar');
-            console.error('Erro ao registrar:', error);
+            Swal.fire({
+                title: "<strong>Falha no Cadastro!</strong>",
+                icon: "error",
+            });
         }
         finally {
             setLoading(false);
@@ -234,11 +243,11 @@ function Login() {
                         </div>
                     ) : userType === 'student' ? (
                         <StudentForm
-                            icons={{ iconPerson,iconNamePerson, iconKey, iconEmail, iconCPF, iconBirthDate, iconGender, iconInstragram, iconFacebook, iconTwitter, iconRegistration }}
+                            icons={{ iconPerson, iconNamePerson, iconKey, iconEmail, iconCPF, iconBirthDate, iconGender, iconInstragram, iconFacebook, iconTwitter, iconRegistration }}
                             setProfileImage={setProfileImage} profileImage={profileImage} setUsername={setUsername} setName={setName} registration={registration} setEmail={setEmail} setPassword={setPassword} setBirthDate={setBirthDate} cpf={cpf} setGender={setGender}
                             handleClickRegistre={handleClickRegistre}
                             handleCpfChange={handleCpfChange}
-                            handleRegistrationChange={handleRegistrationChange} 
+                            handleRegistrationChange={handleRegistrationChange}
                         />
                     ) : (
                         <VisitorForm
@@ -266,8 +275,9 @@ function Login() {
                         Cadastre-se
                     </button>
                 </div>
+
                 <div className="login-second-column">
-                    <h2 className="login-title login-title-second">Faça login na Robotic Minds</h2>
+                    <h2 className="login-title login-title-login">Faça login na Robotic Minds</h2>
                     <div className="login-social-media">
                         <ul className="login-list-social-media">
                             <a className="login-link-social-media" href="#">
@@ -294,7 +304,7 @@ function Login() {
                     <form className="login-form">
                         <label className="login-label-input">
                             <img src={iconPerson} className='icon-custom'></img>
-                            <input type="email" placeholder="Nome de Usuário" onChange={(e) => setName(e.target.value)} required />
+                            <input type="text" placeholder="Nome de Usuário" onChange={(e) => setName(e.target.value)} required />
                         </label>
                         <label className="login-label-input">
                             <img src={iconKey} className='icon-custom'></img>
@@ -303,7 +313,7 @@ function Login() {
                         <a className="login-password" href="#">
                             Esqueceu sua senha?
                         </a>
-                        <button className="login-btn login-btn-second" onClick={handleClickLogin} disabled={loading}>
+                        <button className="login-btn login-btn-second custom-btn-login" onClick={handleClickLogin} disabled={loading}>
                             {loading ? '' : 'Login'}
                         </button>
                     </form>

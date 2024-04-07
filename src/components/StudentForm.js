@@ -18,7 +18,7 @@ function StudentForm({ icons, setProfileImage, profileImage, setUsername, setNam
 
     return (
         <>
-            <h2 className="login-title login-title-second">Criar uma conta Minds</h2>
+            <h2 className="login-title login-title-registre">Criar uma conta Minds</h2>
             <div className="login-social-media">
                 <ul className="login-list-social-media">
                     <a className="login-link-social-media" href="#">
