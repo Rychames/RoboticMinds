@@ -7,7 +7,7 @@ export const getUsersApiURL = () => {
   return "https://roboticminds-a038b27b4466.herokuapp.com/api/users/"
 }
 export const getRegisterApiURL = () => {
-  return "https://roboticminds-a038b27b4466.herokuapp.com/api/users/register/"
+  return "https://roboticminds-a038b27b4466.herokuapp.com/api/user/register/"
 }
 export const getTokenApiURL = () => {
   return "https://roboticminds-a038b27b4466.herokuapp.com/token/"
@@ -37,11 +37,10 @@ export const loginUser = async (credentials, navigate) => {
  }
 };
 
-export const registerUser = async (userData, navigate) => {
+export const registerUser = async (formData, navigate) => {
   const registerApiURL = getRegisterApiURL();
  try {
-    const response = await axios.post(registerApiURL, userData);
-    alert("Usuario Cadastrado!");
+    const response = await axios.post(registerApiURL, formData);
 
     navigate('/');
     return response.data;

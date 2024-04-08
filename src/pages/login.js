@@ -34,6 +34,7 @@ function Login() {
 
     const [photoURL, setPhotoURL] = useState(defaultProfilePhoto);
     const [photo, setPhoto] = useState(null);
+    const formData = new FormData();
 
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
@@ -100,7 +101,7 @@ function Login() {
     const handleCpfChange = (event) => {
         let rawCpf = event.target.value.replace(/\D/g, '');
         if (rawCpf.length > 11) {
-            rawCpf = rawCpf.slice(0, 11); // Limita a entrada a 11 dígitos
+            rawCpf = rawCpf.slice(0, 11);
         }
         const formattedCpf = formatCPF(rawCpf);
         setCpf(formattedCpf);
@@ -174,7 +175,9 @@ function Login() {
         const formattedCPF = formatCPF(cpf);
         if (!isValidCPF(formattedCPF)) {
             alert('CPF inválido');
+
             setLoading(false);
+
             return;
         }
 
@@ -185,19 +188,26 @@ function Login() {
         }
 
         const userData = {
-            username: name,
+            // name: name,
+            username: username,
             email: email,
             password: password,
             birth_date: birthDate,
-            cpf: cpf,
+            cpf: cpf.replace(/[^0-9]/g, ''),
             registration: registration,
             sex: gender,
-            profileImage: profileImage
+            // profileImage: profileImage
         };
-        
+
+        for (const key in userData) {
+            formData.append(key, userData[key]);
+        }
+        formData.forEach((value, key) => {
+            console.log(`${key}: ${value}`);
+        });
+
         try {
-            const tokenAcess = await registerUser(userData, navigate);
-            localStorage.setItem('authToken', tokenAcess);
+            await registerUser(formData, navigate);
             Swal.fire({
                 title: "<strong>Usuário Cadastrado com Sucesso!</strong>",
                 icon: "success",
