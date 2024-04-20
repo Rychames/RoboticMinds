@@ -11,10 +11,7 @@
     "framer-motion": "^11.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
     "react-icons": "^5.1.0",
-=======
->>>>>>> ce10cba91cfc8d926375d041900c3cd5967e23b8
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "sweetalert2": "^11.10.7",
