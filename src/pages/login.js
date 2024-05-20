@@ -128,11 +128,11 @@ function Login() {
         setLoading(true);
 
 
-        if (!isValidPassword(password)) {
-            alert('Senha inválida');
-            setLoading(false);
-            return;
-        }
+        // if (!isValidPassword(password)) {
+        //     alert('Senha inválida');
+        //     setLoading(false);
+        //     return;
+        // }
 
         const credentials = {
             username: name,

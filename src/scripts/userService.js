@@ -26,6 +26,7 @@ export const resquestUser = async (method, body=null) => {
     switch (method) {
       case 'GET':
         response = await axios.get(`${usersApiURL}`, request);
+        return response.data.results
         break;
       case 'POST':
         response = await axios.post(`${usersApiURL}`, body, request);

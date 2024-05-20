@@ -1,4 +1,3 @@
-import logoRoboticMinds from '../images/RoboticMinds.png'
 import onda from '../images/onda.svg'
 import imgRoboticSobre from '../images/imgRoboticSobre.png'
 import imgGenerica from '../images/imgGenericaFoto.png'
@@ -7,6 +6,7 @@ import imgRoboticProjetos from '../images/imgRoboticProje.png'
 import imgRoboticMent from '../images/imgRoboticMent.png'
 import imgFacaParte from '../images/imgParte5.png'
 import imgRoboticInsc from '../images/imgRoboticInsc.png'
+import logoRobotic from '../images/Logotipo versão negativa.png'
 
 import Header from '../components/Header.js';
 import Footer from '../components/footer.js';
@@ -45,7 +45,7 @@ export default function home(onChange) {
         <div className="container">
           <div className="row">
             <div className="col-6 d-flex justify-content-end mb-5 mt-5">
-              <img src={logoRoboticMinds} className="img-fluid imgRoboticHeader "></img>
+              <img src={logoRobotic} className="img-fluid imgRoboticHeader "></img>
             </div>
             <div className="col-6 align-self-center mb-5 mt-5">
               <p className="mb-3 txtEquipMind ">Equipe de robótica do Campus Avançado Manacapuru</p>

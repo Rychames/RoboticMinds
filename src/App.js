@@ -6,8 +6,6 @@ import Login from './pages/login.js'
 import Project from './pages/project.js'
 import Alunos from './pages/administration/alunos.js';
 
-
-
 function App() {
   return (
     <Router>
@@ -18,10 +16,10 @@ function App() {
         <Route path='/sobre' element={<></>}/>
         <Route path='/profile' element={<teacherProfile />} />
 
-        
         <Route path='/administration/alunos' element={<Alunos />} />
       </Routes>
     </Router>
+
   );
 }
 

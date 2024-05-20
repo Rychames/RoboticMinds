@@ -4,6 +4,7 @@ import txtMindNegativa from '../images/txtMindNegativa.png';
 import { Link } from 'react-router-dom';
 import { checkLoginStatus } from '../scripts/loginRedirect.js';
 import { logout } from '../scripts//loginRedirect.js';
+import logoRobotic from '../images/Logotipo versão negativa.png'
 
 export default function Header() {
   return (
