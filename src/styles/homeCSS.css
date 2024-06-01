@@ -226,7 +226,15 @@ body{
   
   
   /* RESPONSIVIDADE */
-  
+
+  @media (max-width: 470px) {
+    .txtSobre{
+      max-width: 300px;
+      font-size: 12px;
+    }
+  }
+
+
   /* Tv */
   @media (min-width: 1400px) {
     .txtEquipMind{
@@ -251,11 +259,16 @@ body{
     
   }
   
+  
   /* Notebooks Computadores */
-  @media (min-width: 768px) {
-    .txtEquipMind{
-      font-size: 40px;
+  @media (max-width: 830px) {
+    .footer-responsive{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     }
+  }
+  @media (min-width: 768px) {
     .imgRoboticHeader{
       width: 55%;
     }
@@ -268,11 +281,17 @@ body{
       width: 30%;
     }
   }
-  
+  @media (max-width: 420px) {
+    .imgRoboticHeader{
+      width: 150px !important;
+      height: 100px !important;
+    }
+  }
+
   /* Tablets */
   @media (min-width: 930px) {
     .txtEquipMind{
-      font-size: 30px;
+      font-size: 20px;
     }
   
   }

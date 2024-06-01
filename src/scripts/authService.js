@@ -1,16 +1,17 @@
 import axios from 'axios';
 
+
 export const getApiURL = () => {
-  return "https://roboticminds.pythonanywhere.com/"
+  return "https://roboticminds.pythonanywhere.com"
 }
 export const getUsersApiURL = () => {
-  return "https://roboticminds.pythonanywhere.com/api/users/"
+  return getApiURL() + "/api/users/"
 }
 export const getRegisterApiURL = () => {
-  return "https://roboticminds-a038b27b4466.herokuapp.com/api/user/register/"
+  return getUsersApiURL()
 }
 export const getTokenApiURL = () => {
-  return "https://roboticminds-a038b27b4466.herokuapp.com/token/"
+  return getUsersApiURL() + "token/"
 }
 
 

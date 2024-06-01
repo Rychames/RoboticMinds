@@ -8,10 +8,10 @@ export default function Footer() {
                     <img src={logoRobotic} className='img-fluid mt-5'></img>
                 </div>
             </div>
-            <div className="d-flex text-center justify-content-center align-itens-center mt-3">
-                    <i className="bi bi-facebook me-3"></i>
-                    <i className="bi bi-instagram me-3"></i>
-                    <i className="bi bi-twitter-x me-3"></i>
+            <div className="d-flex text-center justify-content-center align-itens-center mt-3 footer-responsive">
+                    <i className="bi bi-facebook me-3"> Facebook</i>
+                    <i className="bi bi-instagram me-3"> Instagram</i>
+                    <i className="bi bi-twitter-x me-3"> Twitter</i>
                     <p className="txtFooter me-3">POLITICA DE PRIVACIDADE</p>
                     <p className="txtFooter me-3">TERMOS DE USO</p>
                     <p className="txtFooter me-3">QUEM SOMOS</p>
