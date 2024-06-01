@@ -3,53 +3,57 @@ import { getUsersApiURL, getToken } from './authService';
 
 
 
-export const resquestUser = async (method, body=null) => {
-  const usersApiURL = getUsersApiURL()
+export const requestUser = async (method, body = null) => {
+  const usersApiURL = getUsersApiURL();
   const token = await getToken();
-  const request = {};
-  request.method = method;
-  console.log(token)
-  /*
-  if (token === null) {
-    return console.error('Token is null:', error);
+  console.log("Token aqui: "+  token);
+
+  if (token == null) {
+    console.error('Token is null');
+    return null;
   }
 
-  request.headers.Authorization = `Bearer ${token}`;
-  */
+  const request = {
+    method,
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  };
 
-  if (method !== 'GET' && body === null) {return console.error('Body is null');}
-  if (method !== 'GET'){request.body = JSON.stringify(body);}
+  if (method !== 'GET' && body === null) {
+    console.error('Body is null');
+    return null;
+  }
+
+  let response;
 
   try {
-    let response;
-
     switch (method) {
       case 'GET':
-        response = await axios.get(`${usersApiURL}`, request);
-        return response.data.results
+        response = await axios.get(usersApiURL, request);
         break;
       case 'POST':
-        response = await axios.post(`${usersApiURL}`, body, request);
+        response = await axios.post(usersApiURL, body, request);
         break;
       case 'PUT':
-        response = await axios.put(`${usersApiURL}`, body, request);
+        response = await axios.put(usersApiURL, body, request);
         break;
       case 'DELETE':
-        const user_id = body.id;
-        response = await axios.delete(`${usersApiURL}${user_id}`, request);
+        const userId = body.id;
+        response = await axios.delete(`${usersApiURL}/${userId}`, request);
         break;
       default:
+        console.error('Invalid method');
         return null;
     }
     return response.data;
-  }catch (error) {
+  } catch (error) {
     console.error('Erro ao fazer o requestUser:', error);
     throw error;
   }
-}
+};
 
 export const getUser = async () => {
-  const response = await resquestUser('GET')
-  return response;
-
+  return await requestUser('GET');
 };

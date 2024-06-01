@@ -45,7 +45,9 @@ export default function Header() {
                       <i className="bi bi-person-circle"></i>
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                      <li><Link className="dropdown-item text-center" to="/profile">Perfil</Link></li>
+                      <li><Link className="dropdown-item text-center" to="/profile">Perfil</Link></li>  
+                      <li><hr className="dropdown-divider"/></li>
+                      <li><Link className="dropdown-item text-center" to="/administration/alunos">Área Administração</Link></li> 
                       <li><hr className="dropdown-divider"/></li>
                       <li>
                         <button className="dropdown-item text-center" onClick={logout}>Sair</button>

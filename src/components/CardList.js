@@ -1,21 +1,29 @@
 import React from 'react';
 import CardItem from './CardItem';
 
-const CardList = ({ items, style }) => {
- return (
+const CardList = ({ items = [], style }) => {
+  return (
     <div className={`container ${style}`}>
       <div className="row">
-        {items.map((item, index) => (
-          <div className="col mb-4 d-flex justify-content-center" key={index}>
-            <CardItem item={item} style={style} />
+        {items && items.length > 0 ? (
+          items.map((item, index) => (
+            <div className="col mb-4 d-flex justify-content-center" key={index}>
+              <CardItem item={item} style={style} />
+            </div>
+          ))
+        ) : (
+          <div className="col mb-4 d-flex justify-content-center">
+            <p>No items available</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
- );
+  );
 };
 
 export default CardList;
+
+
 
 
 

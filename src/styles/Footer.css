@@ -1,0 +1,15 @@
+.Logo{
+    width: 150px;
+}
+
+.text{
+    color: white;
+}
+
+.text:hover{
+    color: rgb(108, 103, 103);
+}
+
+footer a{
+    text-decoration: none;
+}

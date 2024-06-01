@@ -9,13 +9,12 @@ import imgRoboticInsc from '../images/imgRoboticInsc.png'
 import logoRobotic from '../images/Logotipo versão negativa.png'
 
 import Header from '../components/Header.js';
-import Footer from '../components/footer.js';
+import Footer from '../components/Footer.js';
 import Divisoria from '../components/divisoria';
 import CardList from '../components/CardList';
-import authService from '../scripts/authService.js'
 import { getUser } from '../scripts/userService.js'
 
-import '../styles/homeCSS.css'
+import '../styles/Home.css'
 import '../fonts/stylesheet.css'
 
 const itemsProjeto = [
@@ -26,7 +25,7 @@ const itemsProjeto = [
 ];
 
 const itemsEquip = await getUser()
-console.log(itemsEquip)
+
 
 const itemsMent = [
   { username: 'Walter Claudino', },

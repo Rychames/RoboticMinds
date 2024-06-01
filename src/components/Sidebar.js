@@ -3,13 +3,13 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Navbar.css';
+import '../styles/Sidebar.css';
 import { IconContext } from 'react-icons';
 import { GoChevronRight } from "react-icons/go";
 
 
 
-function Navbar() {
+function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -46,4 +46,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Sidebar;
