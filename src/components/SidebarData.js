@@ -14,7 +14,7 @@ export const SidebarData = [
   },
   {
     title: 'Certificados',
-    path: '/reports',
+    path: '/administration/certificates',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },

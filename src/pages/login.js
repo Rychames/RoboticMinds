@@ -19,7 +19,7 @@ import { loginUser, registerUser } from '../scripts/authService.js';
 import StudentForm from '../components/StudentForm';
 import VisitorForm from '../components/VisitorForm';
 
-import '../styles/loginCSS.css';
+import '../styles/Login.css';
 import '../scripts/loginRedirect.js'
 
 
