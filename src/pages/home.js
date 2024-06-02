@@ -9,10 +9,11 @@ import imgRoboticInsc from '../images/imgRoboticInsc.png'
 import logoRobotic from '../images/Logotipo versão negativa.png'
 
 import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
+import Footer from '../components/footer.js';
 import Divisoria from '../components/divisoria';
 import CardList from '../components/CardList';
-import { getUser } from '../scripts/userService.js'
+import { getStudents, getUser } from '../scripts/userService.js'
+import { ResponseHandle } from '../scripts/handleResponse.js'
 
 import '../styles/Home.css'
 import '../fonts/stylesheet.css'
@@ -24,8 +25,11 @@ const itemsProjeto = [
   { title: 'Item 4', },
 ];
 
-const itemsEquip = await getUser()
-
+//const response = await getUser()
+const responseHandle = new ResponseHandle(getStudents)
+//const { count, next, previous, total_pages } = await responseHandle.getPaginate();
+const studentsTeamRoboticMinds = await responseHandle.getResults();
+console.log(studentsTeamRoboticMinds)
 
 const itemsMent = [
   { username: 'Walter Claudino', },
@@ -98,7 +102,7 @@ export default function home(onChange) {
       <div className="parte4 container-fluid">
         <div className="container ">
           <img src={imgRoboticEquip} className="img-fluid imgProjeto mt-3"></img>
-          <CardList items={itemsEquip} style="stylePT4" />
+          <CardList items={studentsTeamRoboticMinds} style="stylePT4" />
         </div>
       </div>
 

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header.js';
-import Footer from '../../components/Footer.js';
+import Footer from '../../components/footer.js';
 import Sidebar from '../../components/Sidebar.js';
 import '../../styles/Alunos.css';
-import Users from '../../components/Users';
-import { getUser } from '../../scripts/userService.js';
-import { getApiURL } from '../../scripts/authService';
+
+import { getUser, updateUser } from '../../scripts/userService.js'
+import { ResponseHandle } from '../../scripts/handleResponse.js'
+
+import { getApiURL } from '../../scripts/apiUrls.js';
 import imgGenerica from '../../images/imgGenericaFoto.png';
 
 const apiURL = getApiURL();
@@ -17,10 +19,16 @@ export default function Alunos() {
 
     useEffect(() => {
         async function fetchUsers() {
-            const users = await getUser();
-            console.log(users);
+            const responseHandle = new ResponseHandle(getUser)
+            const { count, next, previous, total_pages } = await responseHandle.getPaginate();
+            const users = await responseHandle.getResults();
             setItemsEquip(users || []);
             setFilteredItems(users || []);
+            console.log("Usuários:", users);
+            console.log("Count:", count);
+            console.log("Next:", next);
+            console.log("Previous:", previous);
+            console.log("Total Pages:", total_pages);
         }
         fetchUsers();
     }, []);
@@ -39,10 +47,24 @@ export default function Alunos() {
 
     const handleAccessChange = (event, index) => {
         const { value } = event.target;
-        const updatedItems = [...filteredItems];
-        updatedItems[index].level_access = value === 'Professor' ? 'staff' : 'student';
-        setFilteredItems(updatedItems);
+        const level_access_values = {
+            Aluno: 'student',
+            Professor: 'teacher',
+        }
+        const levelAccess = level_access_values[value]
+        const user = [...filteredItems];
+
+        user[index].level_access = levelAccess;
+        console.log(user[index])
+
+        const newUser = {
+            id: user[index].id,
+            level_access: user[index].level_access
+        }
+        updateUser(newUser)
+        setFilteredItems(user);
     };
+
 
     return (
         <>
@@ -76,15 +98,15 @@ export default function Alunos() {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredItems && filteredItems.map((item, index) => (
+                        {filteredItems.map((user, index) => (
                             <tr key={index}>
                                 <>
                                     <th className="linha">
-                                        <img src={item.profile_picture ? `${apiURL}${item.profile_picture}` : imgGenerica} className="fotoPerfil" alt="img" />
-                                        <p>{item.username ? item.username : item.title}</p>
+                                        <img src={user.profile_picture ? `${apiURL}${user.profile_picture}` : imgGenerica} className="fotoPerfil" alt="img" />
+                                        <p>{user.username ? user.username : user.title}</p>
                                     </th>
                                     <td>
-                                        <select value={item.level_access === 'staff' ? 'Professor' : 'Aluno'} onChange={(e) => handleAccessChange(e, index)}>
+                                        <select value={user.level_access === "teacher" ? 'Professor' : 'Aluno'} onChange={(e) => handleAccessChange(e, index)}>
                                             <option value="Professor">Professor</option>
                                             <option value="Aluno">Aluno</option>
                                         </select>

@@ -65,8 +65,6 @@ function Login() {
         setBodyClass('login-sign-up-js');
     };
 
-
-
     // Logica de validação e chamada do backend
 
     function isValidEmail(email) {
@@ -121,8 +119,6 @@ function Login() {
 
 
 
-
-
     const handleClickLogin = async (event) => {
         event.preventDefault();
         setLoading(true);
@@ -140,8 +136,8 @@ function Login() {
         };
 
         try {
-            const tokenAcess = await loginUser(credentials, navigate);
-            localStorage.setItem('authToken', tokenAcess);
+            const authToken = await loginUser(credentials, navigate);
+            localStorage.setItem('authToken', authToken['access']);
         } catch (error) {
             alert('Erro ao fazer login');
         } finally {

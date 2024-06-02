@@ -1,5 +1,5 @@
 import Header from '../../components/Header.js';
-import Footer from '../../components/Footer.js';
+import Footer from '../../components/footer.js';
 import Sidebar from '../../components/Sidebar.js';
 
 const Certificates = () => {

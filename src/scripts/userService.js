@@ -1,52 +1,84 @@
 import axios from 'axios';
-import { getUsersApiURL, getToken } from './authService';
+import { getUsersApiURL, getToken, getFilterUsersApiURL } from './apiUrls';
 
 
-
-export const requestUser = async (method, body = null) => {
-  const usersApiURL = getUsersApiURL();
-  const token = await getToken();
-  console.log("Token aqui: "+  token);
-
-  if (token == null) {
-    console.error('Token is null');
-    return null;
+export const paginate = (requestURL, page=null, page_size=null) => {
+  if(page && page_size){
+    requestURL = `${requestURL}?page=${page}&page_size=${page_size}`;
   }
+  else{
+    if (page){
+      requestURL = `${requestURL}?page=${page}`;
+    }
+    if (page_size){
+      requestURL = `${requestURL}?page_size=${page_size}`;
+    }
+  }
+  return requestURL;
+}
+
+export const filterUser = async (filters, page=null, page_size=null) => {
+  const usersApiURL = getFilterUsersApiURL();
+  let requestURL = paginate(usersApiURL, page, page_size);
+
+  const method = "POST";
 
   const request = {
     method,
+    url: requestURL,
+    data: filters,
     headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      //'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    }
+  };
+  try {
+    const response = await axios(request);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao fazer o FilterUser:', error);
+    throw error;
+  }
+
+}
+
+
+export const requestUser = async (method, body = null, page = null, page_size = null) => {
+  const usersApiURL = getUsersApiURL();
+  let requestURL = paginate(usersApiURL, page, page_size);
+  
+  //const token = getToken();
+  
+  //console.log("API URL aqui: " +  usersApiURL);
+  //console.log("Token aqui: " +  token);
+
+  //if (token == null) {
+    // NÃO CONCLUIA A REQUISIÇÃO PORQUE O USUARIO NÃO ESTAVA LOGADO
+    //console.error('Token is null');
+    //return null;
+  //}
+
+  
+  const request = {
+    method,
+    url: requestURL,
+    headers: {
+      //'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
     }
   };
 
-  if (method !== 'GET' && body === null) {
-    console.error('Body is null');
+  if (method !== 'GET' && !body) {
+    console.error('Body is null for method:', method);
     return null;
   }
 
-  let response;
+  if (body) {
+    request.data = body;
+  }
 
   try {
-    switch (method) {
-      case 'GET':
-        response = await axios.get(usersApiURL, request);
-        break;
-      case 'POST':
-        response = await axios.post(usersApiURL, body, request);
-        break;
-      case 'PUT':
-        response = await axios.put(usersApiURL, body, request);
-        break;
-      case 'DELETE':
-        const userId = body.id;
-        response = await axios.delete(`${usersApiURL}/${userId}`, request);
-        break;
-      default:
-        console.error('Invalid method');
-        return null;
-    }
+    const response = await axios(request);
     return response.data;
   } catch (error) {
     console.error('Erro ao fazer o requestUser:', error);
@@ -54,6 +86,20 @@ export const requestUser = async (method, body = null) => {
   }
 };
 
-export const getUser = async () => {
-  return await requestUser('GET');
+
+export const getUser = async (page=null, page_size=null) => {
+  return await requestUser('GET', null, page, page_size);
 };
+
+
+export const updateUser = async (user) => {
+  return await requestUser('PUT', user);
+};
+
+export const getStudents = async (page=null, page_size=null) => {
+  const filter = {
+    level_access: "student"
+  }
+  return await filterUser(filter, page, page_size);
+};
+

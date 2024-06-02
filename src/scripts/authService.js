@@ -1,31 +1,10 @@
 import axios from 'axios';
-
-
-export const getApiURL = () => {
-  return "https://roboticminds.pythonanywhere.com"
-}
-export const getUsersApiURL = () => {
-  return getApiURL() + "api/users/"
-}
-export const getTokenApiURL = () => {
-  return  getUsersApiURL() + "/token/"
-}
-
-export const getCertificateApiURL = () => {
-  return  getApiURL() + "api/certificate/"
-}
-export const getUserCertificateApiURL = () => {
-  return  getUsersApiURL() + "api/user_certificate/"
-}
-
-export const getCertificateValidateApiURL = () => {
-  return  getUsersApiURL() + "api/certificate/validate/"
-}
+import { getTokenApiURL, getUsersApiURL } from './apiUrls';
 
 
 export const getToken = () => {
   try {
-    let token = localStorage.getItem('token');
+    let token = localStorage.getItem('authToken');
     console.log(token);
     return token ? token : null; 
   } catch (error) {
@@ -33,6 +12,7 @@ export const getToken = () => {
     return null;
   }
 };
+
 
 export const loginUser = async (credentials, navigate) => {
   const tokenApiURL = getTokenApiURL();
@@ -46,6 +26,7 @@ export const loginUser = async (credentials, navigate) => {
     throw error;
   }
 };
+
 
 export const registerUser = async (formData, navigate) => {
   const registerApiURL = getUsersApiURL();

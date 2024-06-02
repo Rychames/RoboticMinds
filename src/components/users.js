@@ -1,6 +1,6 @@
 import React from 'react';
 import imgGenerica from '../images/imgGenericaFoto.png';
-import { getApiURL } from '../scripts/authService';
+import { getApiURL } from '../scripts/apiUrls';
 
 const apiURL = getApiURL();
 
@@ -10,6 +10,7 @@ const Users = ({ item, style }) => {
             {item.profile_picture ? (
                 <img src={`${apiURL}${item.profile_picture}`} className={`card-img-top align-self-center mt-3 custom-img ${style}`} alt='img' />
             ) : (
+                // eslint-disable-next-line jsx-a11y/img-redundant-alt
                 <img src={imgGenerica} className={`card-img-top align-self-center mt-3 custom-img ${style}`} alt="Generic profile picture" />
             )}
             <div className="custom-body mt-3 text-center">

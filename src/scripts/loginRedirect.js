@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Função para verificar o status de login
+
 export function checkLoginStatus() {
   const isLoggedIn = localStorage.getItem('authToken') !== null;
+  console.log("Status de Login: " + isLoggedIn)
   return isLoggedIn;
 }
 
-// Função para deslogar o usuário
+
 export function logout() {
   localStorage.removeItem('authToken');
+  console.log("Fez logout! Token: " + localStorage.getItem('authToken'))
   window.location.href = '/';
 }
 
@@ -28,9 +30,9 @@ export function LoginRedirect() {
   return null;
 }
 
-window.addEventListener('beforeunload', function() {
-  localStorage.removeItem('authToken');
-});
+//window.addEventListener('beforeunload', function() {
+//  localStorage.removeItem('authToken');
+//});
 
 // Componente para deslogar o usuário e redirecioná-lo para a página inicial
 export function LogoutRedirect() {
