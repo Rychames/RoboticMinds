@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header.js';
-import Footer from '../../components/footer.js';
+import Footer from '../../components/Footer.js';
 import Sidebar from '../../components/Sidebar.js';
 import '../../styles/Alunos.css';
 
@@ -86,7 +86,7 @@ export default function Alunos() {
                     </div>
                 </div>
 
-                <h1 className="text-center">Discentes da RoboticMinds</h1>
+                <h1 className="text-center">Discentes da RoboticMinds </h1>
 
                 <table className="table mt-5">
                     <thead>
@@ -101,15 +101,21 @@ export default function Alunos() {
                         {filteredItems.map((user, index) => (
                             <tr key={index}>
                                 <>
-                                    <th className="linha">
+                                    <th className="d-flex">
                                         <img src={user.profile_picture ? `${apiURL}${user.profile_picture}` : imgGenerica} className="fotoPerfil" alt="img" />
-                                        <p>{user.username ? user.username : user.title}</p>
+                                        <p className='align-self-center align-middle'>{user.username ? user.username : user.title}</p>
                                     </th>
                                     <td>
                                         <select value={user.level_access === "teacher" ? 'Professor' : 'Aluno'} onChange={(e) => handleAccessChange(e, index)}>
                                             <option value="Professor">Professor</option>
                                             <option value="Aluno">Aluno</option>
                                         </select>
+                                    </td>
+                                    <td className='text-center align-middle'>
+                                        <button className='custom-button'>VIZUALIZAR PROJETO</button>
+                                    </td>
+                                    <td className='text-center align-middle'>
+                                        <p className='aqua-text mt-3'>EM PROJETO</p>
                                     </td>
                                 </>
                             </tr>

@@ -6,6 +6,23 @@ body {
   font-size: 16px;
 }
 
+.custom-button{
+  width: 12rem;
+  border:none;
+  color: white;
+  background-color: #545454;
+}
+
+.aqua-text{
+  color: white;
+  background-color: #49C1EA;
+}
+
+.gray-text{
+  color: white;
+  background-color: #545454;
+}
+
 /* Toggle Styles */
 
 #viewport {
@@ -24,7 +41,8 @@ body {
 
 /* Sidebar Styles */
 h1{
-  padding-top: 40px;
+
+  padding-top: 30px;
   font-size: 30px !important;
 }
 #sidebar {

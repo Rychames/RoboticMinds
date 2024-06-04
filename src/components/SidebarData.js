@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons';
 export const SidebarData = [
   {
     title: 'Alunos',
-    path: '/',
+    path: '/administration/alunos',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },

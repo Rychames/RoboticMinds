@@ -9,7 +9,7 @@ import imgRoboticInsc from '../images/imgRoboticInsc.png'
 import logoRobotic from '../images/Logotipo versão negativa.png'
 
 import Header from '../components/Header.js';
-import Footer from '../components/footer.js';
+import Footer from '../components/Footer.js';
 import Divisoria from '../components/divisoria';
 import CardList from '../components/CardList';
 import { getStudents, getUser } from '../scripts/userService.js'
